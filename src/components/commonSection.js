@@ -1,0 +1,93 @@
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import { Button } from '../styles/Button';
+const commonSection = ({ data }) => {
+     const { name } = data;
+     console.log(data.name)
+     return (
+          <>
+               <Wrapper>
+                    <Container>
+                         <Row>
+                              <Col lg={6}>
+                                   <div className='hero-section-data'>
+                                        <p className='intro-data'>Welcome To</p>
+                                        <h1>{name}</h1>
+                                        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
+                                        <NavLink to='/'><Button>Shop Now</Button></NavLink>
+                                   </div>
+                              </Col>
+                              <Col lg={6}>
+                                   <div className='hero-section-image'>
+                                        <figure>
+                                             <img src='./images/hero.jpg' alt='Image' className='img-style' />
+                                        </figure>
+                                   </div>
+                              </Col>
+                         </Row>
+                    </Container>
+               </Wrapper>
+          </>
+     )
+}
+const Wrapper = styled.section`
+padding: 12rem 0;
+  img {
+    min-width: 10rem;
+    height: 10rem;
+  }
+  .hero-section-data {
+    p {
+      margin: 2rem 0;
+    }
+    h1 {
+      text-transform: capitalize;
+      font-weight: bold;
+      font-size:4rem;
+    }
+    .intro-data {
+      margin-bottom: 0;
+    }
+  }
+  .hero-section-image {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  figure {
+    position: relative;
+    &::after {
+      content: "";
+      width: 60%;
+      height: 80%;
+      background-color: rgba(81, 56, 238, 0.4);
+      position: absolute;
+      left: 50%;
+      top: -5rem;
+      z-index: -1;
+    }
+  }
+  .img-style {
+    width: 100%;
+    height: auto;
+  }
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    .grid {
+      gap: 10rem;
+    }
+    figure::after {
+      content: "";
+      width: 50%;
+      height: 100%;
+      left: 0;
+      top: 10%;
+      /* bottom: 10%; */
+      background-color: rgba(81, 56, 238, 0.4);
+    }
+  }
+`
+export default commonSection
