@@ -6,7 +6,6 @@ const productReducer = (state, action) => {
                 isLoading: true
             }
         }
-
         case "PRODUCT_API_DATA":
             const featureData = action.payload.filter((currentElem) => {
                 return currentElem.featured === true;

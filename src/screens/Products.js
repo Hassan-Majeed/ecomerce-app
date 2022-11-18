@@ -12,11 +12,9 @@ const Products = () => {
         <div>
           <FilterSection />
         </div>
-
         <section className="product-view--sort">
           <div className="sort-filter">
             <Sort />
-            sort
           </div>
           <div className="main-product">
             <ProductList />

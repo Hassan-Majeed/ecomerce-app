@@ -3,19 +3,20 @@ import styled from "styled-components";
 import Product from "./Product";
 
 const GridView = ({ products }) => {
-    return (
-        <Wrapper className="section">
-            <div className="container grid grid-three-column">
-                {
-                    products?.map((currProd) => {
-                        return (
-                            <Product key={currProd.id} {...currProd} />
-                        )
-                    })
-                }
-            </div>
-        </Wrapper>
-    );
+  console.log("~ File Name~ ==>: GridView -> products", products);
+  return (
+    <Wrapper className="section">
+      <div className="container grid grid-three-column">
+        {
+          products?.map((currProd) => {
+            return (
+              <Product key={currProd.id} {...currProd} />
+            )
+          })
+        }
+      </div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.section`

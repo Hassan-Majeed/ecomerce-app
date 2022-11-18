@@ -24,20 +24,20 @@ const AppProvider = ({ children }) => {
         try {
             const response = await axios.get(url);
             const singleProductData = await response.data
-            console.log("singleProductData==>",singleProductData)
+            console.log("singleProductData==>", singleProductData)
             dispatch({ type: "SINGLE_PRODUCT_API_DATA", payload: singleProductData })
         } catch (error) {
             dispatch({ type: "SINGLE_API_ERROR" })
         }
     }
-  
+
     // using reducer to set data  globally
     const [state, dispatch] = useReducer(reducer, initialState);
     const getProducts = async (url) => {
         dispatch({ type: "SET_LOADING" })
         try {
             const response = await axios.get(url);
-            const productsData = await response.data 
+            const productsData = await response.data
             dispatch({ type: "PRODUCT_API_DATA", payload: productsData })
         } catch (error) {
             dispatch({ type: "API_ERROR" })
